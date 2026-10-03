@@ -3,8 +3,11 @@
 2a) DATA TYPES
 
 import java.util.Scanner;
+
 public class RoofTopSolarSystem{
+
     public static void main(String[] args) {
+    
         Scanner scanner = new Scanner(System.in);
 
         int panelID = 101;
