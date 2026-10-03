@@ -17,13 +17,3 @@ public class SolarEnergyMonitor {
    }
     }
 
-Output:
-
-Enter the energy generated (in kWh): 
-15
-Good enrgy generation.
-
-
-Enter the energy generated (in kWh): 
-5
-Low energy generation.
