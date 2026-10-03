@@ -47,4 +47,5 @@ public class SolarEnergyMonitor {
 
       sc.close();
    }
+   
     }
