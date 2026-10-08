@@ -1,1 +1,80 @@
+import java.util.Scanner;
 
+public class Student {
+    String studentName;
+    int rollNumber;
+    int marks;
+    String courseName;
+    int courseCredits;
+
+    
+    Student(String studentName, int rollNumber, int marks,
+            String courseName, int courseCredits) {
+        this.studentName = studentName;
+        this.rollNumber = rollNumber;
+        this.marks = marks;
+        this.courseName = courseName;
+        this.courseCredits = courseCredits;
+    }
+
+    double calculateFee() {
+        return courseCredits * 1500;
+    }
+
+    boolean checkEligibility() {
+        return marks >= 50;
+    }
+
+    double calculateScholarship() {
+        if (marks >= 85)
+            return calculateScholarship(calculateFee(), 20);
+        else if (marks >= 70)
+            return calculateScholarship(calculateFee(), 10);
+        else
+            return 0;
+    }
+
+    
+    double calculateScholarship(double fee, double percent) {
+        return fee * percent / 100;
+    }
+
+    double calculateFinalFee() {
+        return calculateFee() - calculateScholarship();
+    }
+
+    void displayDetails() {
+        System.out.println("Student Name: " + studentName);
+        System.out.println("Roll Number: " + rollNumber);
+        System.out.println("Marks: " + marks);
+        System.out.println("Course Name: " + courseName);
+        System.out.println("Course Credits: " + courseCredits);
+        System.out.println("Eligible: " + checkEligibility());
+        System.out.println("Total Fee: Rs." + calculateFee());
+        System.out.println("Scholarship: Rs." + calculateScholarship());
+        System.out.println("Final Fee: Rs." + calculateFinalFee());
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+String name = sc.next();
+       
+       // sc.nextLine();
+        int roll = sc.nextInt();
+        int marks = sc.nextInt();
+         int credits = sc.nextInt();
+         
+       sc.nextLine();
+        String course = sc.nextLine();
+        sc.nextLine();
+       
+
+        Student s = new Student(name, roll, marks, course, credits);
+
+        if (s.checkEligibility()) {
+            s.displayDetails();
+        } else {
+            System.out.println("Student is not eligible for course registration.");
+        }
+    }
+}
